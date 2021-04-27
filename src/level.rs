@@ -1,18 +1,14 @@
 #[tokio::main]
 pub async fn lookup(mut id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> {
 
-    if id.ends_with('\n')
-    {
-        id.pop();
-    }
+   let id_str: &str = id.trim();
 
     println!("Fetching data for {}", id);
 
-    id.pop();
 
     let params = [
         ("secret", "Wmfd2893gb7"),
-        ("levelID", id.as_str())
+        ("levelID", id_str)
     ];
 
     let res = client.post("http://boomlings.com/database/downloadGJLevel22.php")
