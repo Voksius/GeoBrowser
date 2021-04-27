@@ -1,6 +1,14 @@
 #[tokio::main]
-pub async fn lookup(id: String) -> Result<(), reqwest::Error> {
-    let client = reqwest::Client::new();
+pub async fn lookup(mut id: String, client: reqwest::Client) -> Result<(), reqwest::Error> {
+
+    if id.ends_with('\n')
+    {
+        id.pop();
+    }
+
+    println!("Fetching data for {}", id);
+
+    id.pop();
 
     let params = [
         ("secret", "Wmfd2893gb7"),
