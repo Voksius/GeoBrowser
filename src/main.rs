@@ -2,6 +2,7 @@ use std::io::stdin;
 use reqwest::Client;
 mod level;
 
+#[allow(unused_must_use)]
 fn main() {
 
     let client: Client = Client::new();
@@ -13,5 +14,6 @@ fn main() {
         .read_line(&mut lvl_id)
         .expect("Line read error");
 
-    level::lookup(lvl_id, client);
+    level::lookup(lvl_id, &client);
+    
 }

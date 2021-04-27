@@ -1,5 +1,5 @@
 #[tokio::main]
-pub async fn lookup(mut id: String, client: reqwest::Client) -> Result<(), reqwest::Error> {
+pub async fn lookup(mut id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> {
 
     if id.ends_with('\n')
     {
