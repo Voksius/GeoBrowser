@@ -15,8 +15,16 @@ pub async fn lookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqw
         .await?;
 
     let body = res.text().await?;
+    
+    if body == "-1"
+    {
+        println!("That level couldn't be found.");
+    }
 
-    println!("{:?}", body);
+    else
+    {
+        println!("{:?}", body);
+    }
 
     Ok(())
 
