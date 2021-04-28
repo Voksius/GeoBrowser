@@ -8,6 +8,8 @@ fn main() {
 
     let client: Client = Client::new();
 
+    let mut zetex: bool = false;
+
     loop
     {
 
@@ -22,6 +24,11 @@ fn main() {
             .read_line(&mut choice)
             .expect("Line read error.");
 
+        if choice.trim() == "zetex" 
+        { 
+            zetex = true;
+        }
+
         if choice.trim() == "0" { break; }
 
         if choice.trim() == "1"
@@ -35,7 +42,7 @@ fn main() {
                 .read_line(&mut lvl_id)
                 .expect("Line read error");
 
-            level::lookup(lvl_id, &client);
+            level::lookup(lvl_id, &client, zetex);
             
         }
 

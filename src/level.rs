@@ -1,9 +1,7 @@
 #[tokio::main]
-pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> {
+pub async fn lookup(id: String, client: &reqwest::Client, zetex: bool) -> Result<(), reqwest::Error> {
 
    let id_str: &str = id.trim();
-
-   let zetex: bool = false;
 
     println!("Fetching data for {}", id);
 
@@ -28,7 +26,7 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
 
         if zetex == true {
          
-            webbrowser::open("https://www.youtube.com/watch?v=yfGql6suU-c");
+            webbrowser::open("https://youtu.be/LrVflT6Ta5k");
 
         }
     } 
