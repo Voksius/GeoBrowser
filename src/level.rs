@@ -32,20 +32,25 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
 
     println!("{}\n{:?}\n", body, lvl_data);
 
-    let lvl_id  : &str = lvl_data[1];
-    let lvl_name: &str = lvl_data[3];
-    let lvl_desc: &str = lvl_data[5];
+    let lvl_id    : &str = lvl_data[1];
+    let lvl_name  : &str = lvl_data[3];
+    let lvl_desc  : &str = lvl_data[5];
+    let lvl_author: &str = lvl_data[11];
+    let lvl_likes : &str = lvl_data[23];
 
     let desc_vector: Vec<u8> = base64::decode(lvl_desc).unwrap();
     let desc_readable = std::str::from_utf8(&desc_vector).unwrap();
 
     println!("Level Name: {}", lvl_name);
     println!("Level ID: {}", lvl_id);
+    println!("Author's Player ID: {}", lvl_author);
 
     println!("\n{}\n", desc_readable);
 
+    println!("{} likes.", lvl_likes);
+
     }
-    
+
     Ok(())
 
 }
