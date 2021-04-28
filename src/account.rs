@@ -60,7 +60,28 @@ pub async fn list_levels(acc_id: String, client: &reqwest::Client) -> Result<(),
 
     let body = res.text().await?;
 
-    println!("{:?}", body);
+    // println!("{:?}\n", body);
+
+    let list: Vec<&str> = body.split("|").collect();
+
+    let mut i: usize = 0;
+
+    print!("Level ID's are ");
+
+    loop
+    {
+        if i == list.len()
+        {
+            break;
+        }
+
+        let lvl_data: Vec<&str> = list[i].split(":").collect();
+
+        let lvl_id: &str = lvl_data[1];
+
+        print!("{} ", lvl_id);
+        i = i + 1;
+    }
 
     Ok(())
 }
