@@ -3,6 +3,8 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
 
    let id_str: &str = id.trim();
 
+   let zetex: bool = false;
+
     println!("Fetching data for {}", id);
 
 
@@ -23,6 +25,12 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
     if body == "-1"
     {
         println!("Level could not be found.");
+
+        if zetex == true {
+         
+            webbrowser::open("https://www.youtube.com/watch?v=yfGql6suU-c");
+
+        }
     } 
     
     else 
