@@ -141,6 +141,7 @@ dependencies = [
 name = "geobrowser"
 version = "0.0.0"
 dependencies = [
+ "base64",
  "reqwest",
  "tokio",
 ]
