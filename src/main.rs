@@ -10,7 +10,7 @@ fn main() {
     loop
     {
 
-        println!("0. Exit");
+        println!("\n0. Exit");
         println!("1. Search Level by ID");
         println!("What do you want to do?");
 
