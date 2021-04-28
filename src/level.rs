@@ -19,6 +19,15 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
     println!("Status: {}", res.status());
 
     let body = res.text().await?;
+
+    if body == "-1"
+    {
+        println!("Level could not be found.");
+    } 
+    
+    else 
+    {
+
     let lvl_data: Vec<&str> = body.split(":").collect();
 
     println!("{}\n{:?}\n", body, lvl_data);
@@ -35,5 +44,8 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
 
     println!("\n{}\n", desc_readable);
 
+    }
+    
     Ok(())
+
 }
