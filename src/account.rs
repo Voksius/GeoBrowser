@@ -30,9 +30,12 @@ pub async fn lookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqw
         let acc_name   : &str = acc_data[1];
         let acc_gold   : &str = acc_data[5];
         let acc_silver : &str = acc_data[7];
+        let acc_stars  : &str = acc_data[13];
 
         println!("Account name: {}", acc_name);
         println!("\n{} secret coins, {} user coins", acc_gold, acc_silver);
+        println!("{} stars.", acc_stars);
+    
     }
 
     Ok(())
