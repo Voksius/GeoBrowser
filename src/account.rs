@@ -1,7 +1,7 @@
 extern crate reqwest;
 
 #[tokio::main]
-pub async fn lookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> 
+pub async fn idlookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> 
 {
 
     let params = [
@@ -40,4 +40,27 @@ pub async fn lookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqw
 
     Ok(())
 
+}
+
+#[tokio::main]
+pub async fn list_levels(acc_id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> 
+{
+    println!("yo");
+
+    let params = [
+        ("type", "5"),
+        ("str", acc_id.trim()),
+        ("secret", "Wmfd2893gb7")
+    ];
+
+    let res = client.post("http://boomlings.com/database/getGJLevels21.php")
+        .form(&params)
+        .send()
+        .await?;
+
+    let body = res.text().await?;
+
+    println!("{:?}", body);
+
+    Ok(())
 }

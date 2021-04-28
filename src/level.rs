@@ -1,5 +1,6 @@
 #[tokio::main]
-pub async fn lookup(id: String, client: &reqwest::Client, zetex: bool) -> Result<(), reqwest::Error> {
+pub async fn lookup(id: String, client: &reqwest::Client, zetex: bool) -> Result<(), reqwest::Error> 
+{
 
    let id_str: &str = id.trim();
 
