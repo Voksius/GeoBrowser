@@ -63,7 +63,14 @@ fn main() {
 
         if choice.trim() == "3"
         {
-            let mut acc_id: String = String::new();
+            let mut acc_id:   String = String::new();
+            let mut page_num: String = String::new();
+
+            println!("What page would you like to view? Starts from 0!");
+
+            stdin()
+                .read_line(&mut page_num)
+                .expect("Line read error.");
 
             println!("Enter the account ID.");
 
@@ -71,7 +78,7 @@ fn main() {
                 .read_line(&mut acc_id)
                 .expect("Line read error.");
 
-            account::list_levels(acc_id, &client);
+            account::list_levels(acc_id, page_num, &client);
         }
     }
 }

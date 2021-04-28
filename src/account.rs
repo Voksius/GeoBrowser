@@ -43,13 +43,14 @@ pub async fn idlookup(acc_id: String, client: &reqwest::Client) -> Result<(), re
 }
 
 #[tokio::main]
-pub async fn list_levels(acc_id: String, client: &reqwest::Client) -> Result<(), reqwest::Error> 
+pub async fn list_levels(acc_id: String, page_num: String, client: &reqwest::Client) -> Result<(), reqwest::Error> 
 {
     println!("yo");
 
     let params = [
         ("type", "5"),
         ("str", acc_id.trim()),
+        ("page", page_num.trim()),
         ("secret", "Wmfd2893gb7")
     ];
 
