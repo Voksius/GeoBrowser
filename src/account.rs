@@ -18,12 +18,14 @@ pub async fn lookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqw
     
     if body == "-1"
     {
-        println!("That level couldn't be found.");
+        println!("That account couldn't be found.");
     }
 
     else
     {
         println!("{:?}", body);
+
+        let lvl_data: Vec<&str> = body.split(":").collect();
     }
 
     Ok(())
