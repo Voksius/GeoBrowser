@@ -30,8 +30,6 @@ pub async fn lookup(id: String, client: &reqwest::Client) -> Result<(), reqwest:
 
     let lvl_data: Vec<&str> = body.split(":").collect();
 
-    println!("{}\n{:?}\n", body, lvl_data);
-
     let lvl_id    : &str = lvl_data[1];
     let lvl_name  : &str = lvl_data[3];
     let lvl_desc  : &str = lvl_data[5];
