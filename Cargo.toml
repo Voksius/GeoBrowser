@@ -1,6 +1,6 @@
 [package]
 name = "geobrowser"
-version = "0.1.0"
+version = "1.0.1"
 authors = ["gmdEzreal <gmdezreal@gmail.com>"]
 edition = "2018"
 
