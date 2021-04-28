@@ -23,11 +23,13 @@ pub async fn lookup(acc_id: String, client: &reqwest::Client) -> Result<(), reqw
 
     else
     {
-        println!("{:?}", body);
+        println!("{:?}\n", body);
 
         let acc_data: Vec<&str> = body.split(":").collect();
 
-        
+        let acc_name   : &str = acc_data[1];
+
+        println!("Account name: {}", acc_name);
     }
 
     Ok(())
