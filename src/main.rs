@@ -66,16 +66,16 @@ fn main() {
             let mut acc_id:   String = String::new();
             let mut page_num: String = String::new();
 
-            println!("What page would you like to view? Starts from 0!");
-
-            stdin()
-                .read_line(&mut page_num)
-                .expect("Line read error.");
-
             println!("Enter the account ID.");
 
             stdin()
                 .read_line(&mut acc_id)
+                .expect("Line read error.");
+
+            println!("Enter the page number. Pages start at 0");
+
+            stdin()
+                .read_line(&mut page_num)
                 .expect("Line read error.");
 
             account::list_levels(acc_id, page_num, &client);
